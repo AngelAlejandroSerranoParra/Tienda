@@ -36,6 +36,9 @@ public class Producto {
 	
 	
 	
+	public Producto() {
+		super();
+	}
 	public Producto(String nombre, String descripcion, BigDecimal precio, Categoria categoria) {
 		super();
 		this.nombre = nombre;

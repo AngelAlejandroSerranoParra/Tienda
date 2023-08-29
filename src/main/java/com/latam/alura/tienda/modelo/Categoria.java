@@ -14,7 +14,14 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     
+    
     private String nombre;
+    
+    
+
+	public Categoria() {
+		super();
+	}
 
 	public long getId() {
 		return id;

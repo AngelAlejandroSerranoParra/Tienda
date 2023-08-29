@@ -14,30 +14,32 @@ public class RegistroDeProducto {
 
 	public static void main(String[] args) {
 		Categoria celulares = new Categoria("CELULARES");
-		Producto celular =  new Producto("Samsung", "Telefono Usado", new BigDecimal("1000"),celulares);
 		
 		
-		
+			
 		
 		EntityManager em = JPAUtils.getEntityManager();
-		
-		ProductoDao productoDao = new ProductoDao(em);
-		
-		CategoriaDao categoriaDao = new CategoriaDao(em);
-		
-		
+			
 		
 		em.getTransaction().begin();
-		
-		categoriaDao.guardar(celulares);
-		
-		productoDao.guardar(celular);
-		
-		
-		
+
+
 		em.getTransaction().commit();
 		
-		em.close();
+		celulares.setNombre("LIBROS");
+		
+		em.flush();
+		
+		em.clear();
+		
+		celulares =  em.merge(celulares);
+		
+		
+		celulares.setNombre("SOFTWARE");
+		
+		em.flush();
+
+	
 		
 
 	}
